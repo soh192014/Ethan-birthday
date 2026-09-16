@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethan · 12岁生日快乐 🎂</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+  color:#fff;background:#080b18;overflow-x:hidden
+}
+canvas{position:fixed;inset:0;z-index:-2}
+.bg{
+  position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(circle at 20% 20%,#263b8f 0,transparent 32%),
+    radial-gradient(circle at 80% 30%,#5b236f 0,transparent 30%),
+    linear-gradient(135deg,#070a16,#111735 55%,#090b16)
+}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;justify-content:center;gap:22px;padding:14px;
+  background:rgba(5,7,18,.65);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.1)
+}
+nav button{
+  border:0;background:transparent;color:#ddd;cursor:pointer;
+  font-weight:700;font-size:14px
+}
+nav button:hover{color:#fff}
+section{min-height:100vh;padding:100px 20px 70px;display:flex;align-items:center;justify-content:center}
+.hero{text-align:center}
+.badge{
+  display:inline-block;padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  margin-bottom:20px
+}
+h1{
+  font-size:clamp(52px,11vw,120px);line-height:.95;
+  letter-spacing:-5px;text-shadow:0 8px 35px rgba(0,0,0,.4)
+}
+.gradient{background:linear-gradient(90deg,#65d6ff,#b889ff,#ff72b6);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{font-size:clamp(20px,4vw,32px);margin:22px 0;color:#e9eaff}
+.card{
+  width:min(100%,920px);padding:36px;border-radius:28px;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(18px);box-shadow:0 20px 70px rgba(0,0,0,.3)
+}
+.card h2{font-size:38px;margin-bottom:15px}
+.card p{font-size:18px;line-height:1.8;color:#d9dcf2}
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:25px}
+.game{
+  padding:28px;border-radius:22px;text-align:center;
+  background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);
+  transition:.25s
+}
+.game:hover{transform:translateY(-7px);background:rgba(255,255,255,.11)}
+.game .icon{font-size:65px;margin-bottom:12px}
+.game h3{font-size:25px;margin-bottom:8px}
+.game p{font-size:15px}
+.message{text-align:center}
+.message .big{font-size:clamp(35px,7vw,70px);font-weight:900;margin:18px 0}
+.btn{
+  margin-top:25px;border:0;padding:14px 24px;border-radius:999px;
+  background:#fff;color:#101322;font-weight:900;font-size:16px;cursor:pointer;
+  box-shadow:0 8px 25px rgba(0,0,0,.3)
+}
+.btn:hover{transform:scale(1.04)}
+footer{text-align:center;padding:30px;color:#9ca2c4;font-size:14px}
+#surprise{display:none;margin-top:25px;font-size:22px;line-height:1.7}
+@media(max-width:650px){
+  .games{grid-template-columns:1fr}
+  .card{padding:25px 20px}
+  h1{letter-spacing:-3px}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<canvas id="stars"></canvas>
+
+<nav>
+  <button onclick="go('home')">🏠 首页</button>
+  <button onclick="go('games')">🎮 游戏世界</button>
+  <button onclick="go('wish')">🎂 生日祝福</button>
+</nav>
+
+<section id="home">
+  <div class="hero">
+    <div class="badge">🎉 2026 · 09 · 16 · Ethan's Birthday</div>
+    <h1><span class="gradient">HAPPY<br>BIRTHDAY</span></h1>
+    <div class="subtitle">🎂 Ethan · 12岁生日快乐！</div>
+    <p style="color:#bfc5e8;font-size:18px">今天，你正式解锁了「12岁」新等级！ 🚀</p>
+    <button class="btn" onclick="go('games')">进入 Ethan 的游戏世界 →</button>
+  </div>
+</section>
+
+<section id="games">
+  <div class="card">
+    <h2>🎮 Ethan 的游戏世界</h2>
+    <p>两款你喜欢的游戏，组成今天的生日主题！</p>
+    <div class="games">
+      <div class="game">
+        <div class="icon">🧱</div>
+        <h3>Minecraft</h3>
+        <p>挖矿、建造、探索！愿你的世界永远有新的冒险。⛏️🌎</p>
+      </div>
+      <div class="game">
+        <div class="icon">🧍‍♂️</div>
+        <h3>Roblox</h3>
+        <p>无限游戏，无限可能！愿你每一次进入游戏都有好玩的体验。🎮✨</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="wish">
+  <div class="card message">
+    <div style="font-size:75px">🎂🎈🎁</div>
+    <div class="big">Ethan，生日快乐！</div>
+    <p>
+      祝你12岁生日快乐！🥳<br>
+      希望新的一岁里，每一天都充满快乐、惊喜和新的冒险。<br>
+      愿你在 Minecraft 里建造属于自己的传奇，<br>
+      在 Roblox 里玩到超好玩的游戏，<br>
+      也希望我们的友谊一直保持下去！ ⭐
+    </p>
+    <button class="btn" onclick="surprise()">🎁 点击领取隐藏祝福</button>
+    <div id="surprise">✨ 恭喜！你获得了：<br><b>「12岁传奇玩家」成就 🏆</b><br>稀有度：★★★★★</div>
+  </div>
+</section>
+
+<footer>
+  Made specially for Ethan · 12th Birthday 🎂 · 2026
+</footer>
+
+<script>
+function go(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+function surprise(){
+  const box=document.getElementById("surprise");
+  box.style.display="block";
+  fireworks();
+}
+
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+let stars=[];
+function resize(){
+  canvas.width=innerWidth;canvas.height=innerHeight;
+  stars=Array.from({length:120},()=>({
+    x:Math.random()*canvas.width,y:Math.random()*canvas.height,
+    r:Math.random()*1.7+.2,s:Math.random()*.35+.05
+  }));
+}
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="rgba(255,255,255,.8)";
+  for(const s of stars){
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();
+    s.y+=s.s;if(s.y>canvas.height)s.y=0;
+  }
+  requestAnimationFrame(draw);
+}
+addEventListener("resize",resize);resize();draw();
+
+function fireworks(){
+  for(let i=0;i<18;i++){
+    setTimeout(()=>{
+      const x=Math.random()*innerWidth, y=100+Math.random()*innerHeight*.55;
+      for(let j=0;j<24;j++){
+        const a=j*Math.PI*2/24, len=30+Math.random()*80;
+        const dot=document.createElement("div");
+        dot.style.cssText=`
+          position:fixed;left:${x}px;top:${y}px;width:6px;height:6px;
+          border-radius:50%;background:hsl(${Math.random()*360},100%,70%);
+          z-index:50;pointer-events:none;`;
+        document.body.appendChild(dot);
+        dot.animate([
+          {transform:"translate(0,0)",opacity:1},
+          {transform:`translate(${Math.cos(a)*len}px,${Math.sin(a)*len}px)`,opacity:0}
+        ],{duration:900,easing:"cubic-bezier(.1,.8,.3,1)"});
+        setTimeout(()=>dot.remove(),950);
+      }
+    },i*120);
+  }
+}
+</script>
+</body>
+</html>
